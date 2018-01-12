@@ -1,0 +1,146 @@
+<html>
+<head>
+    <title>Samsung Developer Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='-1'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.0.2/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+  <!--  <script src="lib/jQueryRotate.js"></script>  -->
+
+</head>
+<body>
+    <div class="header">
+        <a href="#" id="menu-action">
+            <i class="fa fa-bars"></i>
+            <span>Close</span>
+        </a>
+        <div class="logo">
+            Samsung Developers
+        </div>
+        <div id="signedIn" class="fa fa-user">
+            user457
+        </div>
+    </div>
+    <div class="sidebar">
+        <ul>
+            <li><a href="#"><i class="fa fa-mobile fa-lg"></i><span>Galaxy</span></a></li>
+            <li><a href="#"><i class="fa fa-clock-o"></i><span>Gear</span></a></li>
+            <li><a href="#"><i class="fa fa-television"></i><span>TV</span></a></li>
+            <li><a href="#"><i class="fa fa-bookmark-o"></i><span>Family Hub</span></a></li>
+        </ul>
+    </div>
+
+    <div class="jumbotron">
+        <div class="main-class col-lg-12 row nopadding">
+            <div class="image-class1 col-lg-2">
+            </div>
+            <div class="col-lg-10">
+                <div class="status-button-class col-lg-12">
+                    <button id="launch-btn" class="btn btn-default btn-lg fa fa-check" aria-hidden="true">Launch</button>
+                    <button id="install-btn" class="btn btn-default btn-lg fa">Install</button>
+                    <button id="uninstall-btn" class="btn btn-default btn-lg fa">UnInstall</button>
+                    <button id="cleanup-btn" class="btn btn-default btn-lg fa">CleanUp</button>
+                    <button id="logger-btn" class="btn btn-default btn-lg fa fa-cogs" aria-hidden="true">Logs</button>
+                    <button id="disconnect-btn" class="btn btn-default btn-lg fa fa-times" aria-hidden="true">Disconnect</button>
+                </div>
+                <div class="details-upload row">
+                    <div class="device-info col-lg-4">
+                        <span class="bandName"> </span><br/>
+                        <span class="brand"> </span>
+                        <span class="device-model"> </span>
+                    </div>
+                    <div class="file-upload row col-lg-8">
+                        <form class="form-group">
+                            <label for="apkUpload">Upload APK::</label>
+                            <input type="file" name="apkUpload" id="apkUpload" />
+                            <button id="file-upload-btn" class="btn btn-default btn-md"> Upload </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="remote-injection box col-lg-4" style="display: flex;">
+                    <div class="rtl-audio">
+                        <span>
+                            <audio autoplay>
+                                <source id="audio-temp" src="">
+                            </audio>
+                        </span>
+                    </div>
+                    <div class="launch-device">
+                        <img id="bitmapdata" src="" height="760" width="360"></div>
+                    <div class="launch-device" onclick="sendXYValues(event)" onmousedown="setMouseDownTime()" onmouseup="setMouseUpTime()"
+                         style="background:transparent;position: absolute;width:360px;height:760px;">
+                    </div>
+                </div>
+                <div class="logs-panel box col-lg-8">
+                    <div class="btn-group log-btn-group">
+                        <button id="verbose-btn" class="btn btn-default btn-lg log-btn" value="verbose">Verbose</button>
+                        <button id="debug-btn" class="btn btn-default btn-lg log-btn" value="debug">Debug</button>
+                        <button id="info-btn" class="btn btn-default btn-lg log-btn" value="info">Info</button>
+                        <button id="warn-btn" class="btn btn-default btn-lg log-btn" value="warn">Warn</button>
+                        <button id="error-btn" class="btn btn-default btn-lg log-btn" value="error">Error</button>
+                        <button id="assert-btn" class="btn btn-default btn-lg log-btn" value="assert">Assert</button>
+                    </div>
+                    <div class="log-details box">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style='margin-left:200px'>
+        <!-- <div class="row">
+            <div class="col-md-9 well"> -->
+                <div class='row'>
+                    <div class='col-md-3 well' style='margin-right:10px'>
+                        <div class="">
+                                 <video class='videos' width="250" height="250" src="https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514492836811.mp4" controls="controls" onclick="this.paused ? this.play() : this.pause();">
+                                 </video>
+                        </div>
+                    </div>
+                    
+                    <div class='col-md-3 well ' style='margin-right:10px'>
+                        <div class="">
+                                <video class='videos' width="250" height="250" src="https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514493035583.mp4" controls="controls" onclick="this.paused ? this.play() : this.pause();">
+                                </video>
+                        </div>
+                    </div>
+
+                    <div class='col-md-3 well' style='margin-right:10px'>
+                        <div class="">
+                                <video class='videos' width="250" height="250" src="https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514493265069.mp4" controls="controls" onclick="this.paused ? this.play() : this.pause();">
+                                </video>
+                        </div>
+                    </div>
+                        
+                </div>
+             <!-- <div class='col-md-6'>
+
+             </div>  
+             </div> -->              
+             <!-- </div>            
+        </div> -->
+     </div>
+   
+</body>
+    <script src="js/global.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/lab-details.js"></script>
+    <script src="js/file-upload.js"></script>
+    <script src="js/launch-app.js"></script>
+    <script src="js/logger.js"></script>
+</html>

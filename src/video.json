@@ -1,0 +1,26 @@
+{
+
+"videos":[
+            {
+                "videoID":1,
+                "videoURL":"https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514492836811.mp4"
+            },
+            {
+                "videoID":2,
+                "videoURL":"https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514492906344.mp4"
+            },
+            {
+                "videoID":3,
+                "videoURL":"https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514493035583.mp4"
+            },
+            {
+                "videoID":4,
+                "videoURL":"https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514493265069.mp4"
+            },
+            {
+                "videoID":5,
+                "videoURL":"https://s3.amazonaws.com/haystack-rtl-mp4/12345_1514493593589.mp4"
+            }
+         ]
+    
+}
